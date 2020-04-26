@@ -4,12 +4,12 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|name|string|index: true|
+|name|string|null: false,index: true|
 ### Association
-- has_many :Group
+- has_many :group
 - has_many :comments
 
-## Groups テーブル
+## groups テーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null|
@@ -23,9 +23,9 @@
 |text|text|null|
 |image|string|null|
 |user|references|null: false, foreign_key: true|
-|Group|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :Group 
+- belongs_to :group 
 - belongs_to :user
 
 ## groups_usersテーブル
@@ -34,5 +34,5 @@
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :Group 
+- belongs_to :group 
 - belongs_to :user
