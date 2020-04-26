@@ -6,26 +6,32 @@
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many :join-Group
-- has_many :Group-comments
+- has_many :Group
+- has_many :comments
 
-## join-Group テーブル
+## Group テーブル
 |Column|Type|Options|
 |------|----|-------|
-|recently-text|text|null|
-|member|string|null|
-|title|text|null:false|
+|name|text|null|
 ### Association
 - belongs_to :users
-- has_many :Group-comments
+- has_many :comments
 
-## Group-commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
 |image|string|null|
 |user_id|integer|null: false, foreign_key: true|
-|tweet_id|integer|null: false, foreign_key: true|
+|Group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :join-Group 
+- belongs_to :Group 
+- belongs_to :users
+
+## groups_usersテーブル
+|Column|Type|Options|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :Group 
 - belongs_to :users
