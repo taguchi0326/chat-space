@@ -6,27 +6,29 @@
 |password|string|null: false|
 |name|string|null: false,index: true|
 ### Association
-- has_many :group
+- has_many :groups
 - has_many :comments
 
 ## groups テーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null|
+|name|string|null: false|
 ### Association
 - belongs_to :users
 - has_many :comments
+- belongs_to :groups_users
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null|
-|image|string|null|
+|text|text|
+|image|string|
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :group 
 - belongs_to :user
+- belongs_to :groups_users
 
 ## groups_usersテーブル
 |Column|Type|Options|
