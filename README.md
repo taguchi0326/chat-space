@@ -8,13 +8,13 @@
 ### Association
 - has_many :groups
 - has_many :comments
+- be_longs_to :groups_users
 
 ## groups テーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- belongs_to :users
 - has_many :comments
 - belongs_to :groups_users
 
@@ -26,8 +26,6 @@
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :group 
-- belongs_to :user
 - belongs_to :groups_users
 
 ## groups_usersテーブル
@@ -36,5 +34,5 @@
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :group 
-- belongs_to :user
+- has_many :groups
+- has_many :users
