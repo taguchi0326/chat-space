@@ -6,7 +6,7 @@
 |password|string|null: false|
 |name|string|null: false,index: true|
 ### Association
-- has_many :groups
+- has_many :groups, through: :groups_users
 - has_many :comments
 - be_longs_to :groups_users
 
@@ -17,6 +17,7 @@
 ### Association
 - has_many :comments
 - belongs_to :groups_users
+- has_many :users, through: :groups_users
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -26,7 +27,8 @@
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :groups_users
+- belongs_to :users
+- belongs_to :groups
 
 ## groups_usersテーブル
 |Column|Type|Options|
