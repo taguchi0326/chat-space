@@ -1,14 +1,18 @@
 .side-ber
   .side-ber__header
     .side-ber__header__user-name
-      名前
+      = current_user.name
     .side-ber__header__icons
-      = link_to "#" ,class: "side-ber__header__icons__group-btn" do
+      = link_to new_group_path ,class: "side-ber__header__icons__group-btn" do
         =icon("far fa-edit" , "group-btn")
-      = link_to "#" ,class: "side-ber__header__icons__config-btn" do
+      = link_to edit_user_path(current_user) ,class: "side-ber__header__icons__config-btn" do
         =icon("fas fa-cog" , "config-btn")
-  .side-ber__group-list
-    .side-ber__group-list__group-name
-      グループ
-    .side-ber__group-list__group-message
-      メッセージ
+  .side-ber__list
+    .side-ber__list__contents
+      - current_user.groups.each do |group|
+        .side-ber__list__contents__contents-list
+          = link_to '#' do
+            .side-ber__list__contents__contents-list__group__name
+              = group.name
+            .side-ber__list__contents__contents-list__group__message
+              メッセージはまだありません。
