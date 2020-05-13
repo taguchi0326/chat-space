@@ -100,7 +100,29 @@
     height: calc(100vh - 190px);
     padding: 40px;
     overflow: auto;
+      .message{
+        .upper-message{
+          display: flex;
+          margin-bottom: 12px;
+            &__user-name{
+              color: #333333;
+              font-size: 16px;
+            }
+            &__date{
+              color: #999999;
+             font-size: 12px;
+             margin-left: 10px;
+            }
+        }
+        .lower-message{
+          font-size: 14px;
+          color: #434a54;
+          margin-bottom: 46px;
+        }
+      }
   }
+
+
   &__form{
     height: 90px;
     background-color: #d2d2d2;
@@ -143,3 +165,6 @@
       }
     }
 }
+
+
+
