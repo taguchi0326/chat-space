@@ -52,7 +52,6 @@ $('#new_message').on('submit', function(e){
       contentType: false
     })
      .done(function(data){
-       console.log(data)
        var html = buildHTML(data);
        $('.chat-main__massage-list').append(html);
        $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
@@ -62,5 +61,5 @@ $('#new_message').on('submit', function(e){
       .fail(function() {
         alert("メッセージ送信に失敗しました");
       });
-    })
-  })
+    });
+  });
