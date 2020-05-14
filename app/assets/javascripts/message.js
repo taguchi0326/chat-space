@@ -80,7 +80,6 @@ $(function(){
         $('.chat-main__massage-list').append(insertHTML);
         $('.chat-main__massage-list').animate({ scrollTop: $('.chat-main__massage-list')[0].scrollHeight});
       }
-         console.log('success');
         })
         .fail(function() {
         alert('error');
